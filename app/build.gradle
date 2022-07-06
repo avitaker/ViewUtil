@@ -77,3 +77,5 @@ artifacts {
     archives sourcesJar
     archives javadocJar
 }
+
+group = 'com.github.avitaker'
