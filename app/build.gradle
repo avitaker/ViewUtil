@@ -51,6 +51,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
 
+configurations {
+    customConfig.extendsFrom implementation
+}
+
 // Build a jar with source files.
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
@@ -61,7 +65,7 @@ task javadoc(type: Javadoc) {
     failOnError  false
     source = android.sourceSets.main.java.sourceFiles
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    classpath += configurations.implementation
+    classpath += configurations.customConfig
 }
 
 // Build a jar with javadoc.
