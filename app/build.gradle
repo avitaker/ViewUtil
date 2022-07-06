@@ -29,6 +29,15 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    afterEvaluate {
+        publishing {
+            publications {
+                release(MavenPublication) {
+                    from components.release
+                }
+            }
+        }
+    }
 }
 
 dependencies {
@@ -77,5 +86,3 @@ artifacts {
     archives sourcesJar
     archives javadocJar
 }
-
-group = 'com.github.avitaker'
